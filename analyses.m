@@ -50,7 +50,7 @@ fprintf('\nMedian values [& interquartile range] of participant accuracy:\n');
 for icond = 1:3
     cond = condorder(icond);
     fprintf('%s: ',pad(condstr{cond},3));
-    fprintf('%.2f [%.2f %.2f]\n',quantile(pcor_raw(idx_incl,cond),[.25 .5 .75]));
+    fprintf('%.2f [%.2f %.2f]\n',quantile(pcor_raw(idx_incl,cond),[.5 .25 .75]));
 end
 % Figure 1C (right): Accuracy curves in each condition
 fprintf('\nMean values (& SEM) of participant accuracy curves\n');
@@ -68,7 +68,7 @@ fprintf('\nMedian values [& interquartile range] of participant switch rate:\n')
 for icond = 1:3
     cond = condorder(icond);
     fprintf('%s: ',pad(condstr{cond},3));
-    fprintf('%.2f [%.2f %.2f]\n',quantile(1-prep_raw(idx_incl,cond),[.25 .5 .75]));
+    fprintf('%.2f [%.2f %.2f]\n',quantile(1-prep_raw(idx_incl,cond),[.5 .25 .75]));
 end
 % Figure 1D (right): Switch rate curves in each condition
 fprintf('\nMean values (& SEM) of participant switch curves\n');
@@ -123,7 +123,7 @@ for ipar = 1:4
     for icond = 1:3
         cond = condorder(icond);
         fprintf('  %s: ',pad(condstr{cond},3));
-        fprintf('%.3f [%.3f %.3f]\n',quantile(pars(idx_incl,ipar,cond),[.25 .5 .75]));
+        fprintf('%.3f [%.3f %.3f]\n',quantile(pars(idx_incl,ipar,cond),[.5 .25 .75]));
     end
 end
 
@@ -186,7 +186,7 @@ for ipar = 3:4
             % isplit == 1/2 : upper split/lower split
             idx_split = ~idx_split;
             idx = idx_split & idx_incl;
-            fprintf('     %.2f [%.2f %.2f]',quantile(pcor_raw(idx,cond),[.25 .5 .75]));
+            fprintf('     %.2f [%.2f %.2f]',quantile(pcor_raw(idx,cond),[.5 .25 .75]));
         end
         disp(' ');
     end
